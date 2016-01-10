@@ -30,7 +30,7 @@ function imgToTex() {
 
   texImages.forEach(function(object) {
     var tex = $(object).attr("alt")
-    $(object).replaceWith( "\\(" + tex + "\\)")
+    $(object).replaceWith( " \\(" + tex + "\\) ")
   });
 
 }
@@ -39,6 +39,6 @@ $(document).ready(function(){
   // change!
   imgToTex()
   // use mathjax
-  var math_jax_src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+  var math_jax_src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG";
   $.getScript(math_jax_src)
 })
