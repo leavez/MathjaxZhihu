@@ -1,11 +1,6 @@
 // this file extract tex expression in <img> tag, and insert back to original
 // places rounded with tex context. And then Mathjax will render these equations.
 
-function removeNode(object) {
-    if (object != undefined) {
-       object.parentNode.removeChild(object);
-    }
-}
 function myLog(string) {
     console.log(string)
 }
@@ -30,7 +25,16 @@ function imgToTex() {
 
   texImages.forEach(function(object) {
     var tex = $(object).attr("alt")
-    $(object).replaceWith( " \\(" + tex + "\\) ")
+    if (tex == undefined) {
+      return;
+    }
+    if (tex.indexOf('=') > -1) {
+      // if contains '=', we put it in its own line
+      $(object).replaceWith( " \\[" + tex + "\\] ")
+    } else {
+      // or just inline
+      $(object).replaceWith( " \\(" + tex + "\\) ")
+    }
   });
 
 }
