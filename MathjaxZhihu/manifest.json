@@ -2,6 +2,8 @@
   "name": "Mathjax_Zhihu",
   "description": "use Mathjax to display equations in zhihu.com",
   "version": "1.0",
+  "icons": { "128": "mj128.png" },
+
   "permissions": [
     "webRequest", "webRequestBlocking",
     "background",
